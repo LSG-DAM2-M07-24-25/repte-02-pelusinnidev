@@ -6,6 +6,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -25,11 +26,11 @@ fun CharacterItem(
         contentDescription = "Character $characterId",
         modifier = Modifier
             .padding(8.dp)
-            .size(100.dp)
+            .size(150.dp)
             .clip(CircleShape)
             .border(
-                width = if (isSelected) 4.dp else 1.dp,
-                color = if (isSelected) Color.Blue else Color.Gray,
+                width = if (isSelected) 6.dp else 2.dp,
+                color = if (isSelected) MaterialTheme.colorScheme.primary else Color.Gray,
                 shape = CircleShape
             )
             .clickable(onClick = onSelect)

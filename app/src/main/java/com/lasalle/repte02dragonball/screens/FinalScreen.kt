@@ -9,7 +9,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.lasalle.repte02dragonball.R
 import com.lasalle.repte02dragonball.navigation.Screens
@@ -22,48 +24,56 @@ fun FinalScreen(
     viewModel: MainViewModel
 ) {
     Column(
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(24.dp)
+            .padding(bottom = 24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Logo
         Image(
             painter = painterResource(id = R.drawable.dragonball_daima_logo),
             contentDescription = "Dragon Ball Logo",
-            modifier = Modifier.size(100.dp)
+            modifier = Modifier
+                .size(200.dp)
+                .padding(top = 24.dp)
         )
-        
-        // Nom del personatge
+
         Text(
             text = viewModel.characterName.value,
-            style = MaterialTheme.typography.headlineMedium,
-            modifier = Modifier.padding(top = 8.dp)
+            style = MaterialTheme.typography.headlineLarge,
+            fontSize = 28.sp
         )
         
-        // Imatge del personatge
         viewModel.selectedCharacter.value?.let { characterId ->
             Image(
                 painter = painterResource(id = getCharacterImage(characterId)),
                 contentDescription = "Personatge seleccionat",
-                modifier = Modifier.size(200.dp)
+                modifier = Modifier.size(250.dp)
             )
         }
         
-        // Missatge
         Text(
             text = viewModel.userMessage.value,
             style = MaterialTheme.typography.bodyLarge,
-            modifier = Modifier.padding(16.dp)
+            fontSize = 54.sp,
+            fontWeight = FontWeight.Bold
         )
         
-        // Botó tornar
+        Spacer(modifier = Modifier.weight(1f))
+        
         Button(
             onClick = { 
                 viewModel.clearStates()
                 navController.navigate(Screens.CharacterSelection.route) 
-            }
+            },
+            modifier = Modifier
+                .width(320.dp)
+                .height(50.dp)
         ) {
-            Text(text = "Tornar a la selecció")
+            Text(
+                text = "Tornar a Seleccionar Personatge",
+                fontSize = 18.sp
+            )
         }
     }
 } 

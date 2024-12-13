@@ -25,10 +25,10 @@ fun SplashScreen(navController: NavHostController, viewModel: MainViewModel) {
         Image(
             painter = painterResource(id = R.drawable.dragonball_daima_logo),
             contentDescription = "Dragon Ball Logo",
-            modifier = Modifier.size(200.dp)
+            modifier = Modifier.size(400.dp)
         )
         
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.height(16.dp))
         
         // Botó d'entrada
         Button(
