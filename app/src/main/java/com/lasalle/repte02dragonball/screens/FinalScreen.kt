@@ -10,7 +10,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.lasalle.repte02dragonball.R
 import com.lasalle.repte02dragonball.navigation.Screens
@@ -20,38 +19,49 @@ import getCharacterImage
 @Composable
 fun FinalScreen(
     navController: NavHostController,
-    viewModel: MainViewModel = viewModel()
+    viewModel: MainViewModel
 ) {
     Column(
         modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        // Logo a dalt
+        // Logo
         Image(
             painter = painterResource(id = R.drawable.dragonball_daima_logo),
             contentDescription = "Dragon Ball Logo",
             modifier = Modifier.size(100.dp)
         )
         
-        // Imatge del personatge seleccionat
-        Image(
-            painter = painterResource(
-                id = getCharacterImage(viewModel.selectedCharacter.value ?: 0)
-            ),
-            contentDescription = "Personatge seleccionat",
-            modifier = Modifier.size(200.dp)
+        // Nom del personatge
+        Text(
+            text = viewModel.characterName.value,
+            style = MaterialTheme.typography.headlineMedium,
+            modifier = Modifier.padding(top = 8.dp)
         )
         
-        // Missatge de l'usuari
+        // Imatge del personatge
+        viewModel.selectedCharacter.value?.let { characterId ->
+            Image(
+                painter = painterResource(id = getCharacterImage(characterId)),
+                contentDescription = "Personatge seleccionat",
+                modifier = Modifier.size(200.dp)
+            )
+        }
+        
+        // Missatge
         Text(
             text = viewModel.userMessage.value,
-            style = MaterialTheme.typography.headlineMedium,
+            style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.padding(16.dp)
         )
         
-        // Botó per tornar a la selecció
+        // Botó tornar
         Button(
-            onClick = { navController.navigate(Screens.CharacterSelection.route) }
+            onClick = { 
+                viewModel.clearStates()
+                navController.navigate(Screens.CharacterSelection.route) 
+            }
         ) {
             Text(text = "Tornar a la selecció")
         }

@@ -12,9 +12,10 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.lasalle.repte02dragonball.R
 import com.lasalle.repte02dragonball.navigation.Screens
+import com.lasalle.repte02dragonball.viewmodel.MainViewModel
 
 @Composable
-fun SplashScreen(navController: NavHostController) {
+fun SplashScreen(navController: NavHostController, viewModel: MainViewModel) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
