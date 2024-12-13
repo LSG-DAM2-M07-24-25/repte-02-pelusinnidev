@@ -14,8 +14,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.lasalle.repte02dragonball.R
 import com.lasalle.repte02dragonball.navigation.Screens
-import com.lasalle.repte02dragonball.utils.getCharacterImage
 import com.lasalle.repte02dragonball.viewmodel.MainViewModel
+import getCharacterImage
 
 @Composable
 fun FinalScreen(
