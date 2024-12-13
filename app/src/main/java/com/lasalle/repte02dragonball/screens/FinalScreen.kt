@@ -38,26 +38,32 @@ fun FinalScreen(
                 .padding(top = 24.dp)
         )
 
-        Text(
-            text = viewModel.characterName.value,
-            style = MaterialTheme.typography.headlineLarge,
-            fontSize = 28.sp
-        )
-        
-        viewModel.selectedCharacter.value?.let { characterId ->
-            Image(
-                painter = painterResource(id = getCharacterImage(characterId)),
-                contentDescription = "Personatge seleccionat",
-                modifier = Modifier.size(250.dp)
+        Column(
+            modifier = Modifier
+                .padding(top = 80.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = viewModel.characterName.value,
+                style = MaterialTheme.typography.headlineLarge,
+                fontSize = 28.sp
+            )
+
+            viewModel.selectedCharacter.value?.let { characterId ->
+                Image(
+                    painter = painterResource(id = getCharacterImage(characterId)),
+                    contentDescription = "Personatge seleccionat",
+                    modifier = Modifier.size(320.dp)
+                )
+            }
+
+            Text(
+                text = viewModel.userMessage.value,
+                style = MaterialTheme.typography.bodyLarge,
+                fontSize = 54.sp,
+                fontWeight = FontWeight.Bold
             )
         }
-        
-        Text(
-            text = viewModel.userMessage.value,
-            style = MaterialTheme.typography.bodyLarge,
-            fontSize = 54.sp,
-            fontWeight = FontWeight.Bold
-        )
         
         Spacer(modifier = Modifier.weight(1f))
         

@@ -43,6 +43,7 @@ fun MessageInputScreen(
             label = { Text("Escriu el teu Nom", fontSize = 16.sp) },
             modifier = Modifier
                 .fillMaxWidth()
+                .padding(top = 180.dp)
                 .height(100.dp),
             textStyle = TextStyle(fontSize = 18.sp)
         )
