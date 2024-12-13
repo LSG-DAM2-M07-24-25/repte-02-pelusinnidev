@@ -15,6 +15,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.lasalle.repte02dragonball.R
 import com.lasalle.repte02dragonball.navigation.Screens
+import com.lasalle.repte02dragonball.screens.components.CharacterItem
 import com.lasalle.repte02dragonball.viewmodel.MainViewModel
 
 @Composable
@@ -28,7 +29,7 @@ fun CharacterSelectionScreen(
     ) {
         // Logo més petit a dalt
         Image(
-            painter = painterResource(id = R.drawable.dragon_ball_logo),
+            painter = painterResource(id = R.drawable.dragonball_daima_logo),
             contentDescription = "Dragon Ball Logo",
             modifier = Modifier.size(100.dp)
         )
@@ -55,4 +56,4 @@ fun CharacterSelectionScreen(
             Text(text = "Següent")
         }
     }
-} 
+}

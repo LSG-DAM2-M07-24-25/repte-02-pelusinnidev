@@ -6,8 +6,7 @@ plugins {
 }
 
 dependencies {
-    val composeBom = platform("androidx.compose:compose-bom:2024.02.00")
-    implementation(composeBom)
+    implementation(platform(libs.androidx.compose.bom))
     
     implementation(libs.androidx.core.ktx.v1120)
     implementation(libs.androidx.lifecycle.runtime.ktx.v270)

@@ -28,7 +28,7 @@ fun FinalScreen(
     ) {
         // Logo a dalt
         Image(
-            painter = painterResource(id = R.drawable.dragon_ball_logo),
+            painter = painterResource(id = R.drawable.dragonball_daima_logo),
             contentDescription = "Dragon Ball Logo",
             modifier = Modifier.size(100.dp)
         )
